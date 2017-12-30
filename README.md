@@ -19,7 +19,7 @@ Because of these two disclaimers, I apologize for not having a thorough understa
 
 Once created (and the key saved in a .pem file), you can access the EC2 instance on the command line by clicking "Connect" and copying and pasting the displayed "ssh" command (provided you are in the same directory as where you saved your .pem file on your machine).
 
-3. I created in Security Group Inbound properties a `TCP Custom Rule` on Port 3000 (Source=`Anywhere`). You can also add a `TCP Custom Rule` on Port 8000 for testing the connection. 
+2. I created in Security Group Inbound properties a `TCP Custom Rule` on Port 3000 (Source=`Anywhere`). You can also add a `TCP Custom Rule` on Port 8000 for testing the connection. 
 
 3. I created an Elastic IP that I associated to my EC2 Instance.
 
