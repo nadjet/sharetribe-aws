@@ -10,22 +10,22 @@ Because of these two disclaimers, I apologize for not having a thorough understa
 ## Sources of information
 
 1. Sharetribe installation instructions on [Sharetribe github](https://github.com/sharetribe/sharetribe),
-2. [Deploying on Amazon AWS (Free-Tier) with EC2, RDS & Sharetribe](https://gist.github.com/pcm211/10950bf5447a51fdcd1c). Please note that some instructions are not correct anymore: for example "bundle exec rake db:schema:load" is "bundle exec rake db:structure:load", as specified in the Sharetribe Github specified above. Also version of Ruby is 2.3.4 as of today's Sharetribe Github (not 2.2.4 as specified).
+2. [Deploying on Amazon AWS (Free-Tier) with EC2, RDS & Sharetribe](https://gist.github.com/pcm211/10950bf5447a51fdcd1c). Please note that some instructions are not correct anymore: for example `bundle exec rake db:schema:load` is `bundle exec rake db:structure:load`, as specified in the Sharetribe Github specified above. Also version of Ruby is 2.3.4 as of today's Sharetribe Github (not 2.2.4 as specified).
 
 ## Amazon AWS Steps
 
-1. I created an EC2 instance by choosing AMI "Ubuntu Server 14.04 LTS (HVM), SSD Volume Type" (eligible for Free Tier) with T2 Micro (also eligible for Free Tier). I chose this type of server because I followed installation instructions from [this Github repository](https://gist.github.com/pcm211/10950bf5447a51fdcd1c) about "Deploying on Amazon AWS (Free-Tier) with EC2, RDS & Sharetribe", and its use of "apt-get" commands required the use of a certain kind of OS (I had selected a different server before, for which "apt-get" commands did not work).
+1. I created an EC2 instance by choosing AMI "Ubuntu Server 14.04 LTS (HVM), SSD Volume Type" (eligible for Free Tier) with T2 Micro (also eligible for Free Tier). I chose this type of server because I followed installation instructions from [this Github repository](https://gist.github.com/pcm211/10950bf5447a51fdcd1c) about "Deploying on Amazon AWS (Free-Tier) with EC2, RDS & Sharetribe", and its use of `apt-get` commands required the use of a certain kind of OS (I had selected a different server before, for which `apt-get` commands did not work).
 
 
 Once created (and the key saved in a .pem file), you can access the EC2 instance on the command line by clicking "Connect" and copying and pasting the displayed "ssh" command (provided you are in the same directory as where you saved your .pem file on your machine).
 
-3. I created in Security Group Inbound properties a "TCP Custom Rule" on Port 3000 (Source="Anywhere"). You can also add a "TCP Custom Rule" on Port 8000 for testing the connection. 
+3. I created in Security Group Inbound properties a `TCP Custom Rule` on Port 3000 (Source=`Anywhere`). You can also add a `TCP Custom Rule` on Port 8000 for testing the connection. 
 
 3. I created an Elastic IP that I associated to my EC2 Instance.
 
 4. I created and started an RDS (Relational Database Service) Database of type MySQL so I can have my Database saved on AWS.  Please remember the password you specify for that DB. I created a single RDS DB that will hold the different DBs that will be created for Sharetribe (development, test).
 
-5. I created another Security Group Input property of type "MYSQL/Aurora" on Port 3000 (Source="Anywhere").
+5. I created another Security Group Input property of type `MYSQL/Aurora` on Port 3000 (Source="Anywhere").
 
 6. I associated the Security Groups created in the previous steps with both the RDS Database and the EC2 instance (according to some source I consulted, specifying the same Security Groups for both RDS and EC2 is important).
 
@@ -37,7 +37,7 @@ Once created (and the key saved in a .pem file), you can access the EC2 instance
 
 2. Configure the DNS Server in your Domain Name provider dashboard by associating your domain name to the AWS Elastic IP in the A Registry. Sharetribe provides [instructions on how to do this for various Domain Name Providers](https://help.sharetribe.com/dns-and-domain-setup).
 
-3. I transferred my domain name to AWS "Route 53". I followed the instructions [here](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html), more specifically the smaller set of steps when domain is not in use. Transferring the domain requires declaring a record set that must be of type A whose name must be your domain name **with** a subdomain. At first I omitted the subdomain and, after creating the marketplace, it forwarded to an invalid url where subdomain was domain (so address was "domain.domain.net" if domain address was "domain.net").
+3. I transferred my domain name to AWS `Route 53. I followed the instructions [here](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html), more specifically the smaller set of steps when domain is not in use. Transferring the domain requires declaring a record set that must be of type A whose name must be your domain name **with** a subdomain. At first I omitted the subdomain and, after creating the marketplace, it forwarded to an invalid url where subdomain was domain (so address became `domain.domain.net` if domain address was domain.net`).
 
 ## Sharetribe Steps
 
@@ -49,7 +49,7 @@ I also had problems because I was using the incorrect version of Node: I got a "
 
 `bundle exec rake assets:precompile`
 
-as specified (here)[https://github.com/sharetribe/sharetribe/issues/1949]. But for this to work I had to have the correct version of Node running.
+as specified [here](https://github.com/sharetribe/sharetribe/issues/1949). But for this to work I had to have the correct version of Node running.
 
 ## Final stages
 
