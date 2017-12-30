@@ -1,4 +1,4 @@
-#How I setup Sharetribe with Amazon AWS, MySQL and my own domain name
+# How I setup Sharetribe with Amazon AWS, MySQL and my own domain name
 
 ## Disclaimers
 
@@ -13,7 +13,7 @@ Because of these two disclaimers, I apologize for not having a thorough understa
 1. Sharetribe installation instructions on [Sharetribe github](https://github.com/sharetribe/sharetribe),
 2. [Deploying on Amazon AWS (Free-Tier) with EC2, RDS & Sharetribe](https://gist.github.com/pcm211/10950bf5447a51fdcd1c). Please note that some instructions are not correct anymore: for example "bundle exec rake db:schema:load" is "bundle exec rake db:structure:load", as specified in the Sharetribe Github specified above. Also version of Ruby is 2.3.4 as of today's Sharetribe Github (not 2.2.4 as specified).
 
-##Amazon AWS Steps
+## Amazon AWS Steps
 
 1. I created an EC2 instance by choosing AMI "Ubuntu Server 14.04 LTS (HVM), SSD Volume Type" (eligible for Free Tier) with T2 Micro (also eligible for Free Tier). I chose this type of server because I followed installation instructions from [this Github repository](https://gist.github.com/pcm211/10950bf5447a51fdcd1c) about "Deploying on Amazon AWS (Free-Tier) with EC2, RDS & Sharetribe", and its use of "apt-get" commands required the use of a certain kind of OS (I had selected a different server before, for which "apt-get" commands did not work).
 
@@ -33,7 +33,7 @@ Once created (and the key saved in a .pem file), you can access the EC2 instance
 7. To test the connection with RDS Database, you can use MySQL Workbench, as in (this video)[https://youtu.be/in7KWCA1ufg]. 
 
 
-##Domain Name provider Steps
+## Domain Name provider Steps
 
 1. Buy domain name. There are many domain name providers. I used 1&1.
 
@@ -41,7 +41,7 @@ Once created (and the key saved in a .pem file), you can access the EC2 instance
 
 3. I transferred my domain name to AWS "Route 53". I followed the instructions [here](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html), more specifically the smaller set of steps when domain is not in use. Transferring the domain requires declaring a record set that must be of type A whose name must be your domain name **with** a subdomain. At first I omitted the subdomain and, after creating the marketplace, it forwarded to an invalid url where subdomain was domain (so address was "domain.domain.net" if domain address was "domain.net").
 
-##Sharetribe Steps
+## Sharetribe Steps
 
 1. Follow the instructions on the [Sharetribe github](https://github.com/sharetribe/sharetribe). Before working with AWS and connecting to my own domain name, I did manage to install Sharetetribe in a couple of hours and use it on localhost by following instructions on Github.
 
@@ -53,7 +53,7 @@ I also had problems because I was using the incorrect version of Node: I got a "
 
 as specified (here)[https://github.com/sharetribe/sharetribe/issues/1949]. But for this to work I had to have the correct version of Node running.
 
-##Final stages
+## Final stages
 
 1. I followed the instructions in [Deploying on Amazon AWS (Free-Tier) with EC2, RDS & Sharetribe](https://gist.github.com/pcm211/10950bf5447a51fdcd1c).
 2. In ```config/database.yml", I specified as "host" the **Endpoint** specified in RDS Dashboard, in addition to username and password (for which I used the same as RDS Database).
@@ -61,7 +61,7 @@ as specified (here)[https://github.com/sharetribe/sharetribe/issues/1949]. But f
 4. When testing, and to make sure you start again from scratch, you can reboot your instance by typing "sudo reboot now" before connecting back in. This was particularly useful when I got an out of memory error once.
 
 
-##What next
+## What next
 
 1. I need to figure out what is AWS S3 for.
 2. Setup so that I don't need to type in port number 3000 after url.
