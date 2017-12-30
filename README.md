@@ -7,8 +7,7 @@
 
 Because of these two disclaimers, I apologize for not having a thorough understanding of each and every step I have gone through, and which might show in some of my rather sloppy instructions and explanations. I welcome comments and improvements.
 
-
-## Sources of information
+## Sources of information
 
 1. Sharetribe installation instructions on [Sharetribe github](https://github.com/sharetribe/sharetribe),
 2. [Deploying on Amazon AWS (Free-Tier) with EC2, RDS & Sharetribe](https://gist.github.com/pcm211/10950bf5447a51fdcd1c). Please note that some instructions are not correct anymore: for example `bundle exec rake db:schema:load` is `bundle exec rake db:structure:load`, as specified in the Sharetribe Github specified above. Also version of Ruby is 2.3.4 as of today's Sharetribe Github (not 2.2.4 as specified).
