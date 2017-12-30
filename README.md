@@ -47,15 +47,15 @@ Once created (and the key saved in a .pem file), you can access the EC2 instance
 
 I also had problems because I was using the incorrect version of Node: I got a "vendor-bundle" not found message as reported [here](https://github.com/sharetribe/sharetribe/issues/2096). In order to solve this problem and generate the appropriate custom style files I had to enter:
 
-```bundle exec rake assets:precompile"
+`bundle exec rake assets:precompile`
 
 as specified (here)[https://github.com/sharetribe/sharetribe/issues/1949]. But for this to work I had to have the correct version of Node running.
 
 ## Final stages
 
 1. I followed the instructions in [Deploying on Amazon AWS (Free-Tier) with EC2, RDS & Sharetribe](https://gist.github.com/pcm211/10950bf5447a51fdcd1c).
-2. In ```config/database.yml", I specified as "host" the **Endpoint** specified in RDS Dashboard, in addition to username and password (for which I used the same as RDS Database).
-3. In ```config.config.yml", I only specified the domain without subdomain or port number.
+2. In `config/database.yml`, I specified as "host" the **Endpoint** specified in RDS Dashboard, in addition to username and password (for which I used the same as RDS Database).
+3. In `config.config.yml`, I only specified the domain without subdomain or port number.
 4. When testing, and to make sure you start again from scratch, you can reboot your instance by typing "sudo reboot now" before connecting back in. This was particularly useful when I got an out of memory error once.
 
 ## What next
