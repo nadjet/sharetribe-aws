@@ -7,7 +7,6 @@
 
 Because of these two disclaimers, I apologize for not having a thorough understanding of each and every step I have gone through, and which might show in some of my rather sloppy instructions and explanations. I welcome comments and improvements.
 
-
 ## Sources of information
 
 1. Sharetribe installation instructions on [Sharetribe github](https://github.com/sharetribe/sharetribe),
@@ -31,7 +30,6 @@ Once created (and the key saved in a .pem file), you can access the EC2 instance
 6. I associated the Security Groups created in the previous steps with both the RDS Database and the EC2 instance (according to some source I consulted, specifying the same Security Groups for both RDS and EC2 is important).
 
 7. To test the connection with RDS Database, you can use MySQL Workbench, as in (this video)[https://youtu.be/in7KWCA1ufg]. 
-
 
 ## Domain Name provider Steps
 
@@ -59,7 +57,6 @@ as specified (here)[https://github.com/sharetribe/sharetribe/issues/1949]. But f
 2. In ```config/database.yml", I specified as "host" the **Endpoint** specified in RDS Dashboard, in addition to username and password (for which I used the same as RDS Database).
 3. In ```config.config.yml", I only specified the domain without subdomain or port number.
 4. When testing, and to make sure you start again from scratch, you can reboot your instance by typing "sudo reboot now" before connecting back in. This was particularly useful when I got an out of memory error once.
-
 
 ## What next
 
