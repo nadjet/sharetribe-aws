@@ -7,6 +7,7 @@
 
 Because of these two disclaimers, I apologize for not having a thorough understanding of each and every step I have gone through, and which might show in some of my rather sloppy instructions and explanations. I welcome comments and improvements.
 
+
 ## Sources of information
 
 1. Sharetribe installation instructions on [Sharetribe github](https://github.com/sharetribe/sharetribe),
