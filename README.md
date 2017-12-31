@@ -22,7 +22,7 @@ I do hope this document might help some people who are struggling like I did. Co
 
 2. I created in Security Group Inbound properties a `TCP Custom Rule` on Port 3000 (Source=`Anywhere`). You can also add a `TCP Custom Rule` on Port 8000 for testing the connection to your domain name. To do this, create a basic "index.html" that displays some message and start Python http server as follows: 
 
-	```python -m SimpleHTTPServer &"
+	`python -m SimpleHTTPServer &`
 
 	When accessing your domain on port 8000, you will get your message shown in the browser.
 
